@@ -5,15 +5,15 @@ import Table from "react-bootstrap/Table";
 export default class Estudiantes extends Component {
   constructor(props) {
     super(props);
-    this.limpiar = this.limpiar.bind(this);
-    this.listarPersonas = this.listarPersonas.bind(this);
+    // this.limpiar = this.limpiar.bind(this);
+    this.listarEstudiantes = this.listarEstudiantes.bind(this);
 
     this.state = {
       estudiantes: [],
     };
   }
 
-  listarPersonas(inputValue) {
+  listarEstudiantes(inputValue) {
     fetch("http://localhost:1234/estudiantes?apellido=" + inputValue)
       .then((resp) => resp.json())
       .then((json) => {
@@ -26,18 +26,18 @@ export default class Estudiantes extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.inputValue !== this.props.inputValue)
-      this.listarPersonas(this.props.inputValue);
+      this.listarEstudiantes(this.props.inputValue);
   }
 
   componentDidMount() {
-    this.listarPersonas(this.props.inputValue);
+    this.listarEstudiantes(this.props.inputValue);
   }
 
-  limpiar() {
-    this.setState({
-      estudiantes: [],
-    });
-  }
+  // limpiar() {
+  //   this.setState({
+  //     estudiantes: [],
+  //   });
+  // }
 
   render() {
     return (
@@ -45,10 +45,10 @@ export default class Estudiantes extends Component {
         <Table striped bordered hover>
           <thead>
             <tr>
-              <th>nombre</th>
-              <th>apellido</th>
-              <th>dni</th>
-              <th>cursos</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>DNI</th>
+              <th>Curso Inscripto</th>
             </tr>
           </thead>
           <tbody>
