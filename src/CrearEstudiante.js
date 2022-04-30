@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
-import "./CrearEstudiante.css";
 
 export default class CrearEstudiante extends Component {
   constructor(props) {
